@@ -16,6 +16,11 @@ namespace addressbook_tests_autoit
             List<GroupData> oldGroups = app.Groups.GetGroupList();
             int index = 0;
 
+            if (app.Groups.GetGroupList().Count() == 0)
+            {
+                app.Groups.Add(new GroupData() { Name = "NewAddedGroup" });
+            }
+
             app.Groups.Delete(index);
 
             List<GroupData> newGroups = app.Groups.GetGroupList();
